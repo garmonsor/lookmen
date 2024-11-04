@@ -1,3 +1,5 @@
+@import url("./prism.min.css");
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +7,22 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+.language-html {
+  display: block;
+}
+
+button {
+  margin: 1.5rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: unset;
+}
+
+input {
+  min-width: 250px;
 }

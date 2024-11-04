@@ -9,7 +9,7 @@ let whoami = "You are a highly advanced AI platform dedicated to assisting users
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
-  res.render('index', { title: 'Lookmen AI - Proof Check Content Online' });
+  res.render('index', { title: 'Lookmen AI - Code Formatting Assistant' });
 });
 
 router.post("/", async (req, res) => {

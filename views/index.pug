@@ -7,8 +7,10 @@ block content
     p Simply enter your code below and click "Run" to see how it can be improved for better readability and maintainability.
 
   form#form(action="", method="post")
-    div
+    div.flex
       input#prompt(type="text", name="code" placeholder="Enter your code here")
       button#submit(type="submit") Run
     div 
-      p#result Result
+      span#message
+      button#copy Copy Code
+      section#result
