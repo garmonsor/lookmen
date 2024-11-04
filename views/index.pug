@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  form#form(action="", method="POST")   
+    input#prompt(type="text", name="prompt")
+    button#submit(type="submit") Run
+  p#result Result
