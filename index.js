@@ -12,7 +12,8 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + "/public/"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
