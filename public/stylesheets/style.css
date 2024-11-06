@@ -1,26 +1,75 @@
-@import url('./reset.css');
-@import url("./prism.min.css");
-@import url('./utilities.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import url('./reset.css');
+@import url('./utilities.css');
+@import url("./prism.min.css");
 
+:root {
+    --lightest-gray: #f9f9f9;
+    --medium-gray: #676767;
+    --dark-gray: #424242;
+    --darker-gray: #2f2f2f;
+    --darkest-gray: #212121;
+    --almost-black: #171717;
+    --black: #0d0d0d;
+}
+
+/* Example usage */
+body {
+    background-color: var(--darkest-gray);
+    color: var(--lightest-gray);
+}
+
+code, .code {
+    background-color: var(--almost-black);
+    border-radius: var(--spacing-xs);
+}
+
+textarea {
+    background-color: var(--almost-black);
+    color: var(--lightest-gray);
+    padding: var(--spacing-xs);
+    border-radius: var(--spacing-xs);
+}
+
+#submit {
+    width: 190px;
+    border: thin solid var(--medium-gray);
+    border-radius: var(--spacing-xs);
+    outline: unset;
+    background-color: var(--medium-gray);
+}
+
+#submit:hover {
+    cursor: pointer;
+    background-color: var(--dark-gray);
+}
+
+main {
+    width: 900px;
+    min-height: 99vh;
+    margin: 0 auto;        /* Disable manual resizing */
+  }
+
+header h2 {
+    text-align: center;
+}
 
 #prompt {
     width: 100%;
-    min-height: 40px;    /* Initial minimum height */
+    min-height: 20px;    /* Initial minimum height */
     max-height: 300px;   /* Maximum height before scrolling */
     overflow-y: auto;    /* Show scrollbar when max-height is reached */
     resize: none;        /* Disable manual resizing */
   }
 
-/* Skeleton Loader Styles */
-.skeleton-loader {
+  .skeleton-loader {
     width: 100%;
     height: 100px; /* Adjust the height based on your needs */
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background: linear-gradient(90deg, var(--medium-gray) 25%, var(--lighter-gray) 50%, var(--medium-gray) 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite ease-in-out;
-  }
+}
   
   @keyframes loading {
     0% {
@@ -30,3 +79,19 @@
       background-position: 200% 0;
     }
   }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--darkest-gray);
+    color: var(--lightest-gray);
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-weight: normal;
+}

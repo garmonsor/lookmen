@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
     
     // If result is undefined or has no response, send an error
     if (!result || !result.response) {
-      throw new Error("No response received from the model.");
+      throw new Error("No response received for this code.");
     }
 
     // Convert the result to Markdown

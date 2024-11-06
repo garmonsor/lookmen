@@ -19,12 +19,18 @@ $(document).ready(function () {
         // Send POST request to the server
         $.post("/", data, function (data) {
             // On successful response
-            console.log(data);
             let response = data.response;
             $result.html(response); // Replace skeleton with actual content
+
+            // Add the 'code' class to the 'code' elements after content is inserted
+            $('code').addClass('code');
+
+            // Make sure PrismJS highlights the code
+            Prism.highlightAll(); 
+
+            // Show the copy button
             $copy.show();
             $('code').attr('id', 'code-content');
-            Prism.highlightAll();  // Syntax highlighting
         }, "json")
         .fail(function (jqXHR, textStatus, errorThrown) {
             // Handle errors from the backend
