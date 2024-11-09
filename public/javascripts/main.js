@@ -6,18 +6,17 @@ $(document).ready(function () {
     let $copy = $("#copy");
     $copy.hide();
 
-    // Hide the skeleton loader on page load
-    let $skeleton = $('<div class="skeleton-loader"></div>');
-
+   
     $submit.on('click', function (e) {
         e.preventDefault();
         let data = { prompt: $prompt.val() };
-
-        // Show skeleton loader while waiting for response
-        $result.html($skeleton); // This will replace content with the skeleton loader
-
+        $submit.prop('disabled', true);
+        $submit.html(' <progress class="circle small"></progress>');
         // Send POST request to the server
         $.post("/", data, function (data) {
+           
+            $submit.prop('disabled', false);
+            $submit.html('<i>arrow_upward</i>');
             // On successful response
             let response = data.response;
             $result.html(response); // Replace skeleton with actual content
@@ -37,6 +36,8 @@ $(document).ready(function () {
             $result.html(`<p class="error">An error occurred: ${jqXHR.responseJSON?.error || "Please try again."}</p>`);
             $copy.hide();  // Hide the copy button if there's an error
             console.error("Request failed:", textStatus, errorThrown);
+            $submit.prop('disabled', false);
+            $submit.html('<i>arrow_upward</i>');
         });
     });
 
@@ -65,9 +66,11 @@ $(document).ready(function () {
     function autoResize() {
         $prompt.height(0); // Reset height to calculate the new height correctly
         const scrollHeight = $prompt[0].scrollHeight; // Get the scrollable height
-        $prompt.height(Math.min(scrollHeight, 300)); // Set height with max limit
+        $prompt.height(Math.min(scrollHeight, 200)); // Set height with max limit
     }
 
     // Bind autoResize to input events
-    $prompt.on('input', autoResize);
+    // $prompt.on('input', autoResize);
+
+    
 });

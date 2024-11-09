@@ -1,23 +1,58 @@
-extends layout
+html
+  head
+    title= title
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/beercss@latest/dist/cdn/beer.min.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
 
-block content
-  main.column
-    header.padding.small-round
-      h2.padding-bottom Welcome to Lookmen AI!
-      p This platform is designed to help you format and adapt your code to comply with best practices and conventions for various programming languages.
-      p Simply enter your code below and click "Run" to see how it can be improved for better readability and maintainability.
+  body.dark
+    header.responsive.max
+      nav
+        section.max
+          a(href="/") 
+            h6 Lookman.ai
+
+        button.transparent.circle#theme
+          i#dark(style="display: none") light_mode
+          i#light dark_mode
     
-    div.container
-      form#form(action="", method="post").form
-        section.row
-          textarea#prompt(name="code" placeholder="Enter your code here").max
-          button#submit(type="submit").padding Run
-        section.output  
-          div.button-container.padding
-            button(data-clipboard-target="#code-content", id='copy').copy Copy Code
-          section#result.result
+    main.responsive 
+      div
+        nav.button-container
+          section.max
+            button(data-menu="#drawer").chip.circle
+              i info
+              div.tooltip.right 
+                span  very working for yet
+ 
+          button(data-clipboard-target="#code-content", id='copy').chip 
+            i.fas.fa-copy
+            span Copy Code
 
-  footer 
-    p Developed by 
-      a(href="https://www.github.com/timtjoe", target="_blank") Tim T. Joe 
-      | for the Gemini API Hackathon 2024
+        div#result
+          h6.padding This platform is designed to help you format and adapt your code to comply with best practices and conventions for various programming languages. Simply enter your code below and run it to see how it can be improved for better readability and maintainability.
+
+      //- div.absolute.container.center.bottom.row.round.padding.blur.fixed.prompt-container 
+    footer.fixed.blur.round.small-padding.margin
+      form#form(action="" method="method")
+        nav
+            div.field.textarea.label.border.round.max 
+              textarea#prompt(name="prompt", required)
+              label(for="prompt") Enter code here...
+
+            button#submit(type="submit", title="Run Code").circle.primary.extra 
+              i arrow_upward
+
+    dialog#drawer
+      h5.Left
+      div Some text here
+      nav.right-align
+        button.border
+        button.confirm
+
+    script(type="module", src="/javascripts/jquery.js") 
+    script(type="module", src="/javascripts/prism.min.js") 
+    script(type="module", src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js") 
+    script(type="module", src="https://cdn.jsdelivr.net/npm/beercss@latest/dist/cdn/beer.min.js") 
+    script(type="module", src="/javascripts/main.js")

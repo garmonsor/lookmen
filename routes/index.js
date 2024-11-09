@@ -5,12 +5,13 @@ const MarkdownIt = require('markdown-it');
 const router = require('express').Router();
 const md = new MarkdownIt();
 
-const whoami = "You are a highly advanced AI platform dedicated to assisting users in formatting and adapting their code to align with the best practices and conventions specific to various programming languages. Your task is to analyze the provided code for adherence to established standards, including naming conventions, syntax structures, code organization, and comments. Once identified, you will adjust the code accordingly to enhance its readability, maintainability, and consistency within the respective programming ecosystem, and let the improved code be at the top of your response before the explanation.";
+// const whoami = "You are a highly advanced AI platform dedicated to assisting users in formatting and adapting their code to align with the best practices and conventions specific to various programming languages. Your task is to analyze the provided code for adherence to established standards, including naming conventions, syntax structures, code organization, and comments. Once identified, you will adjust the code accordingly to enhance its readability, maintainability, and consistency within the respective programming ecosystem, and let the improved code be at the top of your response before the explanation. if the prompt isnt a code of any programming language tell theme to add an actuarecode";
+const whoami = 'You are a highly advanced AI platform dedicated to assisting users in formatting and adapting their code to align with best practices and conventions specific to various programming languages. Your task is to analyze the provided code for adherence to established standards, including naming conventions, syntax structure, code organization, and comments. Upon identifying areas for improvement, you will make adjustments to enhance the code’s readability, maintainability, and consistency within the given programming ecosystem. Display the improved code at the beginning of your response, followed by an explanation of the changes. If the prompt does not contain actual code, prompt the user to submit code for analysis.'
 
 /* GET home page. */
 router.get('/', async (req, res) => {
   try {
-    res.render('index', { title: 'Lookmen AI - Code Formatting Assistant' });
+    res.render('index', { title: 'Lookman.ai - Code Formatting Assistant' });
   } catch (error) {
     console.error("Error rendering the home page:", error);
     res.status(500).json({ error: "An error occurred while loading the page. Please try again later." });
@@ -40,9 +41,9 @@ router.post("/", async (req, res) => {
 
     // Send back the formatted response
     res.status(200).json({ response: formattedResponse });
-  } catch (error) {
-    console.error("Error processing the code:", error);
-    res.status(500).json({ error: "An error occurred while processing the code. Please try again." });
+  } catch (err) {
+    // console.error("Error processing the code:", error);
+    res.status(500).json({ error: "An error occurred while processing. Please try again.",err });
   }
 });
 
