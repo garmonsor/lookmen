@@ -13,25 +13,22 @@ html
           a(href="/") 
             h6 Lookman.ai
 
-        button.transparent.circle#theme
-          i#dark(style="display: none") light_mode
-          i#light dark_mode
-    
+        button.transparent.circle#theme(data-menu="#drawer")
+          i info
+            div.tooltip.right 
+              span 
+         
     main.responsive 
       div
         nav.button-container
           section.max
-            button(data-menu="#drawer").chip.circle
-              i info
-              div.tooltip.right 
-                span  very working for yet
  
           button(data-clipboard-target="#code-content", id='copy').chip 
             i.fas.fa-copy
             span Copy Code
 
         div#result
-          h6.padding This platform is designed to help you format and adapt your code to comply with best practices and conventions for various programming languages. Simply enter your code below and run it to see how it can be improved for better readability and maintainability.
+          h6.padding.round.surface-container-highest This platform is designed to help you format and adapt your code to comply with best practices and conventions for various programming languages. Simply enter your code below and run it to see how it can be improved for better readability and maintainability.
 
       //- div.absolute.container.center.bottom.row.round.padding.blur.fixed.prompt-container 
     footer.fixed.blur.round.small-padding.margin
