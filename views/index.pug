@@ -9,9 +9,10 @@ html
   body.dark
     header.responsive.max
       nav
+        a(href="/").row 
+          h6 Lookman.ai
+          small Code Formatting Assistant
         section.max
-          a(href="/") 
-            h6 Lookman.ai
         button.chip.circle
           i info
             div.tooltip.left.max  This platform is designed to help you format and adapt your code to comply with best practices and conventions for various programming languages. Simply enter your code below and run it to see how it can be improved for better readability and maintainability.
@@ -20,7 +21,7 @@ html
       div
         nav.button-container
           section.max
- 
+            small 
           button(data-clipboard-target="#code-content", id='copy').chip 
             i.fas.fa-copy
             span Copy Code
